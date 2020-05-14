@@ -17,10 +17,9 @@ class AvatarDropdown extends React.Component {
           type: 'login/logout',
         });
       }
-
+      window.localStorage.removeItem("token")
       return;
     }
-
     history.push(`/account/${key}`);
   };
 
@@ -28,7 +27,7 @@ class AvatarDropdown extends React.Component {
     const {
       currentUser = {
         avatar: '',
-        name: '',
+        userName: '',
       },
       menu,
     } = this.props;
@@ -54,12 +53,12 @@ class AvatarDropdown extends React.Component {
         </Menu.Item>
       </Menu>
     );
-    console.log("+++++++++++++++++++++currentUser.UserName:",currentUser.UserName)
-    return currentUser && currentUser.UserName ? (
+    return currentUser && currentUser.data.userName ? (
       <HeaderDropdown overlay={menuHeaderDropdown}>
         <span className={`${styles.action} ${styles.account}`}>
-          <Avatar size="small" className={styles.avatar} src={currentUser.avatar} alt="avatar" />
-          <span className={styles.name}>{currentUser.UserName}</span>
+          {/*<Avatar size="small" className={styles.avatar} src={currentUser.avatar} alt="avatar" />*/}
+          <Avatar size="small" className={styles.avatar} src={"https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"} alt="avatar" />
+          <span className={styles.name}>{currentUser.data.userName}</span>
         </span>
       </HeaderDropdown>
     ) : (

@@ -136,7 +136,7 @@ class AccountCenter extends Component<
     const { dispatch } = this.props;
     dispatch({
       type: 'accountCenter/fetchCurrent',
-      payload: "hws",
+      payload: window.localStorage.getItem("token"),
     });
     dispatch({
       type: 'accountCenter/fetch',
@@ -173,7 +173,7 @@ class AccountCenter extends Component<
             marginRight: 8,
           }}
         />
-        {currentUser.title}
+        {currentUser.nickName}
       </p>
       <p>
         <ClusterOutlined
@@ -181,7 +181,7 @@ class AccountCenter extends Component<
             marginRight: 8,
           }}
         />
-        {currentUser.group}
+        {currentUser.nickName}
       </p>
       <p>
         <HomeOutlined
@@ -216,9 +216,10 @@ class AccountCenter extends Component<
               {!dataLoading && (
                 <div>
                   <div className={styles.avatarHolder}>
-                    <img alt="" src={currentUser.avatar} />
-                    <div className={styles.name}>{currentUser.UserName}</div>
-                    <div>{currentUser.signature}</div>
+                    {/*<img alt="" src={currentUser.avatar} />*/}
+                    <img alt="" src={"https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"} />
+                    <div className={styles.name}>{currentUser.userName}</div>
+                    <div>{currentUser.nickName}</div>
                   </div>
                   {this.renderUserInfo(currentUser)}
                   <Divider dashed />

@@ -1,11 +1,10 @@
 import request from 'umi-request';
 
-export async function queryCurrent(name:string) {
-  return request('/api/user/',
+export async function queryCurrent(token:string) {
+  return request('/api/user/current',
     {
       method: 'GET',
-      params: { name: name },
-      headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODk5NzU5ODksImlhdCI6MTU4OTM3MTE4OSwiaWQiOjEyLCJpc3MiOiJpY2Vmb3JnIiwibmJmIjoxNTg5MzcxMTg5LCJ1c2VybmFtZSI6Imh3cyJ9.B8Muwf3moO1Xouj7a0VYwDipMQqE3cEPwn-3-wT1NbM'}
+      headers: { 'Authorization': token}
     });
 }
 

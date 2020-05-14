@@ -1,8 +1,10 @@
+// @ts-ignore
 import { Effect, Reducer } from 'umi';
 
 import { fakeRegister } from './service';
 
 export interface StateType {
+  res:{};
   status?: 'ok' | 'error';
   currentAuthority?: 'user' | 'guest' | 'admin';
 }
@@ -23,6 +25,7 @@ const Model: ModelType = {
 
   state: {
     status: undefined,
+    res: undefined,
   },
 
   effects: {
@@ -40,6 +43,7 @@ const Model: ModelType = {
       return {
         ...state,
         status: payload.status,
+        res: payload,
       };
     },
   },
