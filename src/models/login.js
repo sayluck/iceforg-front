@@ -36,7 +36,7 @@ const Model = {
             return;
           }
         }
-
+        window.localStorage.setItem("token",response.data)
         history.replace(redirect || '/');
       }
     },

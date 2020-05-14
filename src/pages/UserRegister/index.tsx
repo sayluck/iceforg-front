@@ -71,6 +71,7 @@ const UserRegister: FC<UserRegisterProps> = ({
     const account = form.getFieldValue('userName');
     if (userRegister.status === "ok") {
       message.success('注册成功！');
+      window.localStorage.setItem("token",userRegister.res.data)
       history.push({
         pathname: '/user/userregisterresult',
         state: {

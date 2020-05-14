@@ -41,7 +41,8 @@ export interface CurrentUser {
   geographic: GeographicType;
   address: string;
   phone: string;
-  UserName: string;
+  userName: string;
+  nickName: string;
 }
 
 export interface Member {
